@@ -1,9 +1,8 @@
 %define name swfdec
-%define version 0.4.2
+%define version 0.4.4
 %define major 0.4
 %define libname %mklibname %name %{major}
 %define rel 1
-
 
 Name:		%name
 Version:	%version
@@ -78,12 +77,16 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %libname
 %defattr(-,root,root)
 %{_libdir}/libswfdec-%major.so.*
+%{_libdir}/libswfdec-gtk-%major.so.*
 
 %files -n %libname-devel
 %defattr(-,root,root)
 %{_libdir}/libswfdec-%major.a
+%{_libdir}/libswfdec-gtk-%major.a
 %{_libdir}/libswfdec-%major.so
+%{_libdir}/libswfdec-gtk-%major.so
 %{_libdir}/pkgconfig/swfdec-%major.pc
+%{_libdir}/pkgconfig/swfdec-gtk-%major.pc
 %dir %{_includedir}/swfdec-%major/
 %{_includedir}/swfdec-%major/*
 %_datadir/gtk-doc/html/%name/
