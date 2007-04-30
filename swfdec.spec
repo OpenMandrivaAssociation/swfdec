@@ -18,6 +18,9 @@ BuildRequires:  libmad-devel
 BuildRequires:  gimp2-devel libalsa-devel
 BuildRequires:	liboil-devel >= 0.3
 BuildRequires:	autoconf2.5 >= 2.58
+BuildRequires:	ffmpeg-devel
+BuildRequires:	libgstreamer-devel
+BuildRequires:	gnome-vfs2-devel
 
 %description
 Libswfdec is a library for rendering Flash animations. Currently it
