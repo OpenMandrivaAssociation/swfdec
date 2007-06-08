@@ -1,5 +1,5 @@
 %define name swfdec
-%define version 0.4.4
+%define version 0.4.5
 %define major 0.4
 %define libname %mklibname %name %{major}
 %define rel 1
