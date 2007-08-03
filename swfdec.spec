@@ -1,5 +1,5 @@
 %define name swfdec
-%define version 0.5.0
+%define version 0.5.1
 %define major 0.5
 %define libname %mklibname %name %{major}
 %define rel 1
@@ -21,7 +21,7 @@ BuildRequires:	autoconf2.5 >= 2.58
 BuildRequires:	ffmpeg-devel
 BuildRequires:	libgstreamer-devel
 BuildRequires:	gnome-vfs2-devel
-
+BuildRequires:	libsoup-2.2-devel
 %description
 Libswfdec is a library for rendering Flash animations. Currently it
 handles mostFlash 3 animations and some Flash 4. No interactivity is
