@@ -1,8 +1,8 @@
 %define name swfdec
-%define version 0.5.1
+%define version 0.5.2
 %define major 0.5
 %define libname %mklibname %name %{major}
-%define rel 2
+%define rel 1
 
 Name:		%name
 Version:	%version
@@ -12,8 +12,6 @@ Group:		System/Libraries
 License:	LGPL
 URL:		http://swfdec.freedesktop.org/
 Source:		http://swfdec.freedesktop.org/download/%name/%major/%{name}-%{version}.tar.bz2
-# (misc) asked by dev, remove when 0.5.2 is out
-Patch:      swfdec-fix_libversion.diff
 BuildRoot:	%{_tmppath}/%{name}-root
 BuildRequires:  libxt-devel
 BuildRequires:  libmad-devel
@@ -54,8 +52,6 @@ swfdec.
 
 %prep
 %setup -q 
-%patch -p1
-autoconf
 
 %build
 export CFLAGS="%optflags -DMOZ_X11"
