@@ -1,5 +1,5 @@
 %define name swfdec
-%define version 0.5.2
+%define version 0.5.3
 %define major 0.5
 %define libname %mklibname %name %{major}
 %define rel 1
@@ -11,7 +11,7 @@ Summary:	Flash animations rendering library
 Group:		System/Libraries
 License:	LGPL
 URL:		http://swfdec.freedesktop.org/
-Source:		http://swfdec.freedesktop.org/download/%name/%major/%{name}-%{version}.tar.bz2
+Source:		http://swfdec.freedesktop.org/download/%name/%major/%{name}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-root
 BuildRequires:  libxt-devel
 BuildRequires:  libmad-devel
@@ -92,5 +92,3 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_includedir}/swfdec-%major/
 %{_includedir}/swfdec-%major/*
 %_datadir/gtk-doc/html/%name/
-
-
