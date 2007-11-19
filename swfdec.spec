@@ -1,7 +1,8 @@
 %define name swfdec
-%define version 0.5.3
+%define version 0.5.4
 %define major 0.5
 %define libname %mklibname %name %{major}
+%define develname %mklibname -d %name
 %define rel 1
 
 Name:		%name
@@ -30,6 +31,7 @@ supported yet.
 %package -n %libname
 Summary: Shared library for decoding Flash animations
 Group: System/Libraries
+Requires: %name = %version
 
 %description -n %libname
 Libswfdec is a library for rendering Flash animations. Currently it
@@ -39,14 +41,15 @@ supported yet.
 This package contains the shared library needed to run libswfdec
 applications.
 
-%package -n %libname-devel
+%package -n %develname
 Summary:	Swfdec development files and static libraries
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	libswfdec-devel = %version-%release
 Provides:	swfdec-devel = %version-%release
+Obsoletes:	%mklibname -d %name 0.5
 
-%description -n %libname-devel
+%description -n %develname
 This contains the files needed to build packages that depend on
 swfdec.
 
@@ -68,6 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -f $RPM_BUILD_ROOT%{_libdir}/mozilla/plugins/*a
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 rm -f %buildroot%_sysconfdir/gtk-2.0/gdk-pixbuf.loaders
+rm -f %buildroot/%{_iconsdir}/hicolor/icon-theme.cache
 #
 
 %clean
@@ -76,12 +80,22 @@ rm -rf $RPM_BUILD_ROOT
 %post -n %libname -p /sbin/ldconfig
 %postun -n %libname -p /sbin/ldconfig
 
+%post
+%update_icon_cache hicolor
+
+%postun
+%clean_icon_cache hicolor
+
+%files
+%defattr(-,root,root)
+%{_iconsdir}/hicolor/*/*/*
+
 %files -n %libname
 %defattr(-,root,root)
 %{_libdir}/libswfdec-%major.so.*
 %{_libdir}/libswfdec-gtk-%major.so.*
 
-%files -n %libname-devel
+%files -n %develname
 %defattr(-,root,root)
 %{_libdir}/libswfdec-%major.a
 %{_libdir}/libswfdec-gtk-%major.a
