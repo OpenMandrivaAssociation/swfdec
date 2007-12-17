@@ -13,7 +13,6 @@ Group:		System/Libraries
 License:	LGPL
 URL:		http://swfdec.freedesktop.org/
 Source:		http://swfdec.freedesktop.org/download/%name/%major/%{name}-%{version}.tar.gz
-BuildRoot:	%{_tmppath}/%{name}-root
 BuildRequires:  libxt-devel
 BuildRequires:  libmad-devel
 BuildRequires:  gimp2-devel libalsa-devel
