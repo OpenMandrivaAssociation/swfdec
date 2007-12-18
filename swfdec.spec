@@ -1,5 +1,5 @@
 %define name swfdec
-%define version 0.5.4
+%define version 0.5.5
 %define major 0.5
 %define libname %mklibname %name %{major}
 %define develname %mklibname -d %name
@@ -12,7 +12,8 @@ Summary:	Flash animations rendering library
 Group:		System/Libraries
 License:	LGPL
 URL:		http://swfdec.freedesktop.org/
-Source:		http://swfdec.freedesktop.org/download/%name/%major/%{name}-%{version}.tar.gz
+Source0:	http://swfdec.freedesktop.org/download/%name/%major/%{name}-%{version}.tar.gz
+Source1:	http://swfdec.freedesktop.org/download/%name/%major/%{name}-%{version}.md5sum
 BuildRequires:  libxt-devel
 BuildRequires:  libmad-devel
 BuildRequires:  gimp2-devel libalsa-devel
@@ -64,12 +65,10 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%makeinstall plugindir=%buildroot/%_libdir/mozilla/plugins gimplibdir=%buildroot%_libdir/gimp/2.0
+%makeinstall 
 # Clean out files that should not be part of the rpm.
 # This is the recommended way of dealing with it for RH8
-rm -f $RPM_BUILD_ROOT%{_libdir}/mozilla/plugins/*a
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
-rm -f %buildroot%_sysconfdir/gtk-2.0/gdk-pixbuf.loaders
 rm -f %buildroot/%{_iconsdir}/hicolor/icon-theme.cache
 #
 
