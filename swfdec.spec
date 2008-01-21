@@ -3,14 +3,14 @@
 %define major 0.5
 %define libname %mklibname %name %{major}
 %define develname %mklibname -d %name
-%define rel 1
+%define rel 2
 
 Name:		%name
 Version:	%version
 Release:	%mkrel %rel 
 Summary:	Flash animations rendering library
 Group:		System/Libraries
-License:	LGPL
+License:	LGPLv2+
 URL:		http://swfdec.freedesktop.org/
 Source0:	http://swfdec.freedesktop.org/download/%name/%major/%{name}-%{version}.tar.gz
 Source1:	http://swfdec.freedesktop.org/download/%name/%major/%{name}-%{version}.md5sum
