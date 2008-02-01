@@ -3,7 +3,7 @@
 %define major 0.5
 %define libname %mklibname %name %{major}
 %define develname %mklibname -d %name
-%define rel 1
+%define rel 2
 
 Name:		%name
 Version:	%version
@@ -23,7 +23,6 @@ BuildRequires:	ffmpeg-devel
 BuildRequires:	libgstreamer-devel
 BuildRequires:	gnome-vfs2-devel
 BuildRequires:	libsoup-2.4-devel
-BuildRequires:  pulseaudio-devel
 %description
 Libswfdec is a library for rendering Flash animations. Currently it
 handles mostFlash 3 animations and some Flash 4. No interactivity is
@@ -59,7 +58,7 @@ swfdec.
 
 %build
 export CFLAGS="%optflags -DMOZ_X11"
-%configure2_5x --enable-shared  --with-audio=pa
+%configure2_5x --enable-shared  
 #gw parallel build does not work
 make
 
