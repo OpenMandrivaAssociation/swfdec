@@ -3,7 +3,7 @@
 %define major 0.5
 %define libname %mklibname %name %{major}
 %define develname %mklibname -d %name
-%define rel 2
+%define rel 3
 
 Name:		%name
 Version:	%version
