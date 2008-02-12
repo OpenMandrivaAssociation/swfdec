@@ -23,6 +23,7 @@ BuildRequires:	ffmpeg-devel
 BuildRequires:	libgstreamer-devel
 BuildRequires:	gnome-vfs2-devel
 BuildRequires:	libsoup-2.4-devel
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 %description
 Libswfdec is a library for rendering Flash animations. Currently it
 handles mostFlash 3 animations and some Flash 4. No interactivity is
