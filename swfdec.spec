@@ -1,9 +1,10 @@
 %define name swfdec
 %define version 0.6.6
-%define major 0.6
-%define libname %mklibname %name %{major}
+%define api 0.6
+%define major 90
+%define libname %mklibname %name %{api} %{major}
 %define develname %mklibname -d %name
-%define rel 1
+%define rel 2
 
 Name:		%name
 Version:	%version
@@ -34,6 +35,7 @@ supported yet.
 Summary: Shared library for decoding Flash animations
 Group: System/Libraries
 Requires: %name = %version
+Obsoletes: %mklibname swfdec 0.6
 
 %description -n %libname
 Libswfdec is a library for rendering Flash animations. Currently it
@@ -92,17 +94,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %libname
 %defattr(-,root,root)
-%{_libdir}/libswfdec-%major.so.*
-%{_libdir}/libswfdec-gtk-%major.so.*
+%{_libdir}/libswfdec-%{api}.so.%{major}*
+%{_libdir}/libswfdec-gtk-%{api}.so.%{major}*
 
 %files -n %develname
 %defattr(-,root,root)
-%{_libdir}/libswfdec-%major.a
-%{_libdir}/libswfdec-gtk-%major.a
-%{_libdir}/libswfdec-%major.so
-%{_libdir}/libswfdec-gtk-%major.so
-%{_libdir}/pkgconfig/swfdec-%major.pc
-%{_libdir}/pkgconfig/swfdec-gtk-%major.pc
-%dir %{_includedir}/swfdec-%major/
-%{_includedir}/swfdec-%major/*
+%{_libdir}/libswfdec-%api.a
+%{_libdir}/libswfdec-gtk-%api.a
+%{_libdir}/libswfdec-%api.so
+%{_libdir}/libswfdec-gtk-%api.so
+%{_libdir}/pkgconfig/swfdec-%api.pc
+%{_libdir}/pkgconfig/swfdec-gtk-%api.pc
+%dir %{_includedir}/swfdec-%api/
+%{_includedir}/swfdec-%api/*
 %_datadir/gtk-doc/html/%name/
