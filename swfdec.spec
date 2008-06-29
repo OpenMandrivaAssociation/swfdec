@@ -34,7 +34,7 @@ supported yet.
 %package -n %libname
 Summary: Shared library for decoding Flash animations
 Group: System/Libraries
-Requires: %name = %version
+Requires: %name >= %version
 Obsoletes: %mklibname swfdec 0.6
 
 %description -n %libname
