@@ -1,7 +1,7 @@
 %define name swfdec
-%define version 0.7.2
+%define version 0.7.4
 %define api 0.7
-%define major 0
+%define major 1
 %define libname %mklibname %name %{api} %{major}
 %define develname %mklibname -d %name
 %define rel 1
@@ -14,7 +14,6 @@ Group:		System/Libraries
 License:	LGPLv2+
 URL:		http://swfdec.freedesktop.org/
 Source0:	http://swfdec.freedesktop.org/download/%name/%major/%{name}-%{version}.tar.gz
-Source1:	http://swfdec.freedesktop.org/download/%name/%major/%{name}-%{version}.md5sum
 BuildRequires:  libxt-devel
 BuildRequires:  libmad-devel
 BuildRequires:  gimp2-devel libalsa-devel
@@ -61,20 +60,13 @@ swfdec.
 %setup -q 
 
 %build
-export CFLAGS="%optflags -DMOZ_X11"
-%configure2_5x --enable-shared  
-#gw parallel build does not work
-make
+%configure2_5x --disable-static 
+%make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %makeinstall 
-# Clean out files that should not be part of the rpm.
-# This is the recommended way of dealing with it for RH8
-rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
-rm -f %buildroot/%{_iconsdir}/hicolor/icon-theme.cache
-#
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -86,16 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 %postun -n %libname -p /sbin/ldconfig
 %endif
 
-%post
-%update_icon_cache hicolor
-
-%postun
-%clean_icon_cache hicolor
-
-%files
-%defattr(-,root,root)
-%{_iconsdir}/hicolor/*/*/*
-
 %files -n %libname
 %defattr(-,root,root)
 %{_libdir}/libswfdec-%{api}.so.%{major}*
@@ -103,10 +85,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %develname
 %defattr(-,root,root)
-%{_libdir}/libswfdec-%api.a
-%{_libdir}/libswfdec-gtk-%api.a
 %{_libdir}/libswfdec-%api.so
 %{_libdir}/libswfdec-gtk-%api.so
+%{_libdir}/libswfdec-%api.la
+%{_libdir}/libswfdec-gtk-%api.la
 %{_libdir}/pkgconfig/swfdec-%api.pc
 %{_libdir}/pkgconfig/swfdec-gtk-%api.pc
 %dir %{_includedir}/swfdec-%api/
