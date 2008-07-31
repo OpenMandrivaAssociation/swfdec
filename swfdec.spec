@@ -4,7 +4,7 @@
 %define major 1
 %define libname %mklibname %name %{api} %{major}
 %define develname %mklibname -d %name
-%define rel 1
+%define rel 2
 
 Name:		%name
 Version:	%version
@@ -33,7 +33,6 @@ supported yet.
 %package -n %libname
 Summary: Shared library for decoding Flash animations
 Group: System/Libraries
-Requires: %name >= %version
 Obsoletes: %mklibname swfdec 0.6
 
 %description -n %libname
@@ -66,7 +65,7 @@ swfdec.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%makeinstall 
+%makeinstall_std
 
 %clean
 rm -rf $RPM_BUILD_ROOT
