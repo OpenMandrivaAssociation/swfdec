@@ -1,5 +1,5 @@
 %define name swfdec
-%define version 0.8.0
+%define version 0.8.2
 %define api 0.8
 %define major 0
 %define libname %mklibname %name %{api} %{major}
@@ -13,10 +13,10 @@ Summary:	Flash animations rendering library
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		http://swfdec.freedesktop.org/
-Source0:	http://swfdec.freedesktop.org/download/%name/%major/%{name}-%{version}.tar.gz
+Source0:	http://swfdec.freedesktop.org/download/%name/%api/%{name}-%{version}.tar.gz
 BuildRequires:  libxt-devel
 BuildRequires:  libmad-devel
-BuildRequires:  gimp2-devel libalsa-devel
+BuildRequires:  libalsa-devel
 BuildRequires:	liboil-devel >= 0.3
 BuildRequires:	autoconf2.5 >= 2.58
 BuildRequires:	ffmpeg-devel
