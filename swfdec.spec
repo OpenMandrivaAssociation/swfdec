@@ -22,6 +22,7 @@ BuildRequires:	autoconf2.5 >= 2.58
 BuildRequires:	ffmpeg-devel
 BuildRequires:  pkgconfig(gstreamer-pbutils-0.10)
 BuildRequires:	libgstreamer-devel
+BuildRequires:	gtk2-devel
 BuildRequires:	gnome-vfs2-devel
 BuildRequires:	libsoup-2.4-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
