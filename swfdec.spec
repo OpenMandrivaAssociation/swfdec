@@ -1,10 +1,10 @@
 %define name swfdec
-%define version 0.8.2
+%define version 0.8.4
 %define api 0.8
 %define major 0
 %define libname %mklibname %name %{api} %{major}
 %define develname %mklibname -d %name
-%define rel 2
+%define rel 1
 
 Name:		%name
 Version:	%version
