@@ -4,7 +4,7 @@
 %define major 0
 %define libname %mklibname %name %{api} %{major}
 %define develname %mklibname -d %name
-%define rel 1
+%define rel 2
 
 Name:		%name
 Version:	%version
