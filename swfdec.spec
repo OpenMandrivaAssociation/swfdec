@@ -1,10 +1,10 @@
 %define name swfdec
-%define version 0.9.2
-%define api 0.9
-%define major 2
+%define version 0.8.4
+%define api 0.8
+%define major 0
 %define libname %mklibname %name %{api} %{major}
 %define develname %mklibname -d %name
-%define rel 0
+%define rel 2
 
 Name:		%name
 Version:	%version
@@ -35,7 +35,6 @@ supported yet.
 Summary: Shared library for decoding Flash animations
 Group: System/Libraries
 Obsoletes: %mklibname swfdec 0.6
-Obsoletes: %mklibname swfdec 0.8
 
 %description -n %libname
 Libswfdec is a library for rendering Flash animations. Currently it
