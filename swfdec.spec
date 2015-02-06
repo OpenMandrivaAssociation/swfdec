@@ -5,7 +5,7 @@
 
 Name:		swfdec
 Version:	0.8.4
-Release:	5
+Release:	6
 Summary:	Flash animations rendering library
 Group:		System/Libraries
 License:	LGPLv2+
