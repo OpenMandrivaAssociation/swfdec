@@ -9,7 +9,7 @@ Release:	6
 Summary:	Flash animations rendering library
 Group:		System/Libraries
 License:	LGPLv2+
-URL:		http://swfdec.freedesktop.org/
+URL:		https://swfdec.freedesktop.org/
 Source0:	http://swfdec.freedesktop.org/download/%name/%api/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(xt)
 BuildRequires:	pkgconfig(mad)
